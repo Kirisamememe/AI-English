@@ -1,0 +1,19 @@
+@keyframes checkedAnimation {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.12);
+    }
+    75%{
+        transform: scale(0.88);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.checkedAnimation {
+    animation: checkedAnimation 0.3s ease-out forwards;
+}

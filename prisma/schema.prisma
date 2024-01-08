@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Definitions {
+  definition_id Int      @id @default(autoincrement())
+  meaning_id    Int
+  definition    String   @db.Text
+  example       String?  @db.Text
+  meanings      Meanings @relation(fields: [meaning_id], references: [meaning_id], onDelete: Cascade)
+
+  @@index([meaning_id], map: "Definitions_meaning_id_fkey")
+}
+
+model Meanings {
+  meaning_id   Int           @id @default(autoincrement())
+  word_id      Int
+  partOfSpeech String
+  synonyms     String?
+  antonyms     String?
+  definitions  Definitions[]
+  words        Words         @relation(fields: [word_id], references: [word_id], onDelete: Cascade)
+
+  @@index([word_id], map: "Meanings_word_id_fkey")
+}
+
+model Words {
+  word_id  Int        @id @default(autoincrement())
+  word     String
+  phonetic String?
+  meanings Meanings[]
+}
+
+model ArticleHistory {
+  article_id Int  @id @default(autoincrement())
+  article String  @db.Text
+  generated_at DateTime
+}
+
+model SentencesHistory {
+  sentences_id Int  @id @default(autoincrement())
+  sentences String  @db.Text
+  generated_at DateTime
+}
+

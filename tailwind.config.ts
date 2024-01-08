@@ -1,20 +1,144 @@
 import type { Config } from 'tailwindcss'
+import colors from 'tailwindcss/colors'
 
 const config: Config = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
-  theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
+    content: [
+        './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    ],
+    theme: {
+        colors: {
+            transparent: 'transparent',
+            black: colors.black,
+            white: colors.white,
+            gray: colors.neutral,
+            rose: colors.rose,
+            green: colors.green,
+            Brand:{
+                '950': 'var(--fill-brand950)',
+                '900': 'var(--fill-brand900)',
+                '800': 'var(--fill-brand800)',
+                '700': 'var(--fill-brand700)',
+                '600': 'var(--fill-brand600)',
+                '500': 'var(--fill-brand500)',
+                '400': 'var(--fill-brand400)',
+                '300': 'var(--fill-brand300)',
+                '200': 'var(--fill-brand200)',
+                '100': 'var(--fill-brand100)',
+                '50': 'var(--fill-brand50)',
+            },
+            Gr: {
+                "900": "var(--fill-gray-g1)",
+                "700": "var(--fill-gray-g2)",
+                "500": "var(--fill-gray-g3)",
+                "300": "var(--fill-gray-g4)",
+                "100": "var(--fill-gray-g5)",
+                "50": "var(--fill-gray-g6)",
+            },
+            BlackOp: {
+                "900": "var(--fill-Bo-900)",
+                "800": "var(--fill-Bo-800)",
+                "700": "var(--fill-Bo-700)",
+                "600": "var(--fill-Bo-600)",
+                "500": "var(--fill-Bo-500)",
+                "400": "var(--fill-Bo-400)",
+                "300": "var(--fill-Bo-300)",
+                "200": "var(--fill-Bo-200)",
+                "100": "var(--fill-Bo-100)",
+                "50": "var(--fill-Bo-50)",
+            },
+            LD: {
+                "1000": "var(--fill-LD-r100)",
+                "900": "var(--fill-LD-r90)",
+                "700": "var(--fill-LD-r70)",
+                "400": "var(--fill-LD-r40)",
+                "200": "var(--fill-LD-r20)",
+            },
+            BG: {
+                "900": "var(--bg-bg1)",
+                "800": "var(--bg-bg2)"
+            },
+            'BGBlur1': "var(--bg-bg-blur)",
+            'BGBlur2': "var(--bg-bg-blur-2)"
+        },
+        opacity: {
+            '0': '0',
+            '20': '0.2',
+            '40': '0.4',
+            '60': '0.6',
+            '80': '0.8',
+            '100': '1',
+        },
+        spacing: {
+            px: '1px',
+            0: '0',
+            0.2: '0.2rem',
+            0.4: '0.4rem',
+            0.6: '0.6rem',
+            0.8: '0.8rem',
+            1: '1rem',
+            1.2: '1.2rem',
+            1.4: '1.4rem',
+            1.6: '1.6rem',
+            2: '2rem',
+            2.4: '2.4rem',
+            2.8: '2.8rem',
+            3.2: '3.2rem',
+            3.6: '3.6rem',
+            4: '4rem',
+            4.4: '4.4rem',
+            4.8: '4.8rem',
+            5.2: '5.2rem',
+            5.6: '5.6rem',
+            6.4: '6.4rem',
+            7.2: '7.2rem',
+            8: '8rem',
+            9: '9rem',
+            10: '10rem',
+            11: '11rem',
+            12: '12rem',
+            13: '13rem',
+            14: '14rem',
+            15: '15rem',
+            16: '16rem',
+            17: '17rem',
+            18: '18rem',
+            19: '19rem',
+            20: '20rem',
+            21: '21rem',
+            22: '22rem',
+            23: '23rem',
+            24: '24rem',
+        },
+        borderRadius: {
+            'none': '0',
+            'sm': '0.3rem',
+            DEFAULT: '0.6rem',
+            'lg': '1rem',
+            'full': '9999px',
+        },
+        borderWidth: {
+            '0': '0',
+            DEFAULT: '0.1rem',
+            '0.2': '0.2rem',
+            '0.3': '0.3rem'
+        },
+        screens: {
+            sm: '480px',
+            md: '768px',
+            lg: '976px',
+            xl: '1280px',
+            '2xl': '1536px',
+        },
+        extend: {
+            fontFamily: {
+                sans: ["\"M PLUS 1p\"", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "MS PGothic", 'sans-serif'],
+                serif: ['serif'],
+                'din': ["DIN-2014"]
+            },
+        },
     },
-  },
-  plugins: [],
+    plugins: [],
 }
 export default config

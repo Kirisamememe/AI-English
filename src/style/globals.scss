@@ -1,27 +1,320 @@
+@import "reset";
+@import "animation";
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@300;400;500;700&family=M+PLUS+1p:wght@300;400;500;700&display=swap");
+@import url("https://use.typekit.net/rno5ywn.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --bg-bg-blur: rgba(255, 255, 255, 0.85);
+    --bg-bg-blur-2: rgba(255, 255, 255, 0.65);
+    --bg-bg1: rgba(244, 244, 244, 1);
+    --bg-bg2: rgba(255, 255, 255, 1);
+    --fill-brand50: hsl(144 49% 48% / 0.05);
+    --fill-brand100: hsl(144 49% 48% / 0.1);
+    --fill-brand200: hsl(144 49% 48% / 0.2);
+    --fill-brand300: hsl(144 49% 48% / 0.3);
+    --fill-brand400: hsl(144 49% 48% / 0.4);
+    --fill-brand500: hsl(144 49% 48% / 0.5);
+    --fill-brand600: hsl(144 49% 48% / 0.6);
+    --fill-brand700: hsl(144 49% 48% / 0.7);
+    --fill-brand800: hsl(144 49% 48% / 0.8);
+    --fill-brand900: hsl(144 49% 48% / 0.9);
+    --fill-brand950: hsl(144 49% 48%);
+    --fill-brand2: rgba(0, 0, 0, 0.85);
+    --fill-brhover: rgba(62, 183, 110, 0.9);
+    --fill-brohover: rgba(255, 100, 77, 0.15);
+    --fill-gray-g1: rgba(31, 31, 31, 1);
+    --fill-gray-g2: rgba(89, 89, 89, 1);
+    --fill-gray-g3: rgba(153, 153, 153, 1);
+    --fill-gray-g4: rgba(216, 216, 216, 1);
+    --fill-gray-g5: rgba(239, 239, 239, 1);
+    --fill-gray-g6: rgba(247, 247, 247, 1);
+    --fill-Bo-900: rgba(0, 0, 0, 1);
+    --fill-Bo-800: rgba(0, 0, 0, 0.8);
+    --fill-Bo-700: rgba(0, 0, 0, 0.7);
+    --fill-Bo-600: rgba(0, 0, 0, 0.6);
+    --fill-Bo-500: rgba(0, 0, 0, 0.5);
+    --fill-Bo-400: rgba(0, 0, 0, 0.4);
+    --fill-Bo-300: rgba(0, 0, 0, 0.3);
+    --fill-Bo-200: rgba(0, 0, 0, 0.15);
+    --fill-Bo-100: rgba(0, 0, 0, 0.1);
+    --fill-Bo-50: rgba(0, 0, 0, 0.05);
+    --fill-LD-r100: rgba(255, 255, 255, 1);
+    --fill-LD-r20: rgba(255, 255, 255, 0.2);
+    --fill-LD-r40: rgba(255, 255, 255, 0.4);
+    --fill-LD-r70: rgba(255, 255, 255, 0.7);
+    --fill-LD-r90: rgba(255, 255, 255, 0.9);
+    --fill-orange: rgba(255, 149, 0, 1);
+    --fill-part-of-speech-adjective: rgba(159, 199, 199, 1);
+    --fill-part-of-speech-adverb: rgba(140, 156, 186, 1);
+    --fill-part-of-speech-conjunction: rgba(186, 184, 177, 1);
+    --fill-part-of-speech-noun: rgba(169, 196, 156, 1);
+    --fill-part-of-speech-preposition: rgba(155, 147, 176, 1);
+    --fill-part-of-speech-verb: rgba(229, 166, 166, 1);
+    --fill-red: rgba(255, 59, 48, 1);
+    --fill-white-w10: rgba(255, 255, 255, 0.1);
+    --fill-white-w100: rgba(255, 255, 255, 1);
+    --fill-white-w20: rgba(255, 255, 255, 0.2);
+    --fill-white-w40: rgba(255, 255, 255, 0.4);
+    --fill-white-w60: rgba(255, 255, 255, 0.6);
+    --fill-white-w80: rgba(255, 255, 255, 0.8);
+    --line-lo0: rgba(0, 0, 0, 0.04);
+    --line-lo1: rgba(0, 0, 0, 0.07);
+    --line-lo2: rgba(0, 0, 0, 0.15);
+    --textstyle-t1: 15px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/*
+
+To enable a theme in your HTML, simply add one of the following data attributes to an HTML element, like so:
+
+<body data-mode="light">
+        <!-- the rest of your content -->
+</body>
+
+You can apply the theme on any DOM node, not just the `body`
+
+*/
+
+[data-mode="dark"] {
+    --bg-bg-blur: rgba(20, 20, 20, 0.85);
+    --bg-bg-blur-2: rgba(20, 20, 20, 0.65);
+    --bg-bg1: rgba(0, 0, 0, 1);
+    --bg-bg2: rgba(20, 20, 20, 1);
+    --fill-brand50: hsl(144 58% 41% / 0.05);
+    --fill-brand100: hsl(144 58% 41% / 0.1);
+    --fill-brand200: hsl(144 58% 41% / 0.2);
+    --fill-brand300: hsl(144 58% 41% / 0.3);
+    --fill-brand400: hsl(144 58% 41% / 0.4);
+    --fill-brand500: hsl(144 58% 41% / 0.5);
+    --fill-brand600: hsl(144 58% 41% / 0.6);
+    --fill-brand700: hsl(144 58% 41% / 0.7);
+    --fill-brand800: hsl(144 58% 41% / 0.8);
+    --fill-brand900: hsl(144 58% 41% / 0.9);
+    --fill-brand950: hsl(144 57% 41%);
+    --fill-brand2: rgba(255, 255, 255, 0.8);
+    --fill-brhover: rgba(44, 164, 92, 0.9);
+    --fill-brohover: rgba(247, 102, 79, 0.22);
+    --fill-gray-g1: rgba(229, 229, 229, 1);
+    --fill-gray-g2: rgba(178, 178, 178, 1);
+    --fill-gray-g3: rgba(128, 128, 128, 1);
+    --fill-gray-g4: rgba(64, 64, 64, 1);
+    --fill-gray-g5: rgba(46, 46, 46, 1);
+    --fill-gray-g6: rgba(20, 20, 20, 1);
+    --fill-Bo-900: rgba(255, 255, 255, 1);
+    --fill-Bo-800: rgba(255, 255, 255, 0.8);
+    --fill-Bo-700: rgba(255, 255, 255, 0.7);
+    --fill-Bo-600: rgba(255, 255, 255, 0.6);
+    --fill-Bo-500: rgba(255, 255, 255, 0.5);
+    --fill-Bo-400: rgba(255, 255, 255, 0.4);
+    --fill-Bo-300: rgba(255, 255, 255, 0.3);
+    --fill-Bo-200: rgba(255, 255, 255, 0.15);
+    --fill-Bo-100: rgba(255, 255, 255, 0.1);
+    --fill-Bo-50: rgba(255, 255, 255, 0.05);
+    --fill-LD-r100: rgba(0, 0, 0, 1);
+    --fill-LD-r20: rgba(0, 0, 0, 0.2);
+    --fill-LD-r40: rgba(0, 0, 0, 0.4);
+    --fill-LD-r70: rgba(0, 0, 0, 0.7);
+    --fill-LD-r90: rgba(0, 0, 0, 0.9);
+    --fill-orange: rgba(255, 159, 10, 1);
+    --fill-part-of-speech-adjective: rgba(159, 199, 199, 0.6);
+    --fill-part-of-speech-adverb: rgba(140, 156, 186, 0.6);
+    --fill-part-of-speech-conjunction: rgba(186, 184, 177, 0.6);
+    --fill-part-of-speech-noun: rgba(169, 196, 156, 0.4);
+    --fill-part-of-speech-preposition: rgba(155, 147, 176, 0.6);
+    --fill-part-of-speech-verb: rgba(229, 166, 166, 0.6);
+    --fill-red: rgba(255, 69, 58, 1);
+    --line-lo0: rgba(255, 255, 255, 0.08);
+    --line-lo1: rgba(255, 255, 255, 0.15);
+    --line-lo2: rgba(255, 255, 255, 0.22);
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background: var(--bg-bg2);
 }
+
+/* チャットコンテナ */
+.chat-container {
+    flex-direction: column;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* テキストエリア */
+.chat-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+
+    background-color: var(--textarea);
+}
+
+/* 送信ボタン */
+.chat-send-button {
+    background-color: #0070f3;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+.chat-send-button:hover {
+    background-color: #0056b3;
+}
+
+/* 応答表示エリア */
+.chat-response {
+    flex-direction: column;
+    margin-top: 1.6rem;
+    padding: 1rem;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: var(--textarea);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    white-space: pre-line;
+}
+
+.paragraph_spacing {
+    margin-bottom: 0.8rem;
+}
+
+p {
+    line-height: 170%;
+}
+
+h1 {
+    @apply text-[2.8rem] font-semibold font-din text-Gr-900 leading-none
+}
+
+input[type="checkbox"] {
+    
+}
+
+#search input {
+    &::placeholder{
+        @apply font-din font-normal text-[1.6rem] text-Gr-500 leading-none
+    }
+}
+
+//[data-theme="Light"] {
+//    /* colors */
+//    --fill-br-ohover: hsl(8 100% 65% / 0.15);
+//    --fill-brand100: hsl(144 49% 48% / 0.1);
+//    --fill-brand200: hsl(144 49% 48% / 0.2);
+//    --fill-brand300: hsl(144 49% 48% / 0.3);
+//    --fill-brand400: hsl(144 49% 48% / 0.4);
+//    --fill-brand50: hsl(144 49% 48% / 0.05);
+//    --fill-brand500: hsl(144 49% 48% / 0.5);
+//    --fill-brand600: hsl(144 49% 48% / 0.6);
+//    --fill-brand700: hsl(144 49% 48% / 0.7);
+//    --fill-brand800: hsl(144 49% 48% / 0.8);
+//    --fill-brand900: hsl(144 49% 48% / 0.9);
+//    --fill-brand950: hsl(144 49% 48%);
+//    --fill-orange: hsl(35 100% 50%);
+//    --fill-red: hsl(3 100% 59%);
+//    --fill-gray-g1: hsl(0 0 12%);
+//    --fill-gray-g2: hsl(0 0 35%);
+//    --fill-gray-g3: hsl(0 0 60%);
+//    --fill-gray-g4: hsl(0 0 85%);
+//    --fill-gray-g5: hsl(0 0 94%);
+//    --fill-gray-g6: hsl(0 0 97%);
+//    --fill-gray-go1: hsl(0 0 0%);
+//    --fill-gray-go2: hsl(0 0 0% / 0.8);
+//    --fill-gray-go3: hsl(0 0 0% / 0.55);
+//    --fill-gray-go4: hsl(0 0 0% / 0.3);
+//    --fill-gray-go5: hsl(0 0 0% / 0.1);
+//    --fill-gray-go6: hsl(0 0 0% / 0.05);
+//    --fill-ld-r100: hsl(0 0 100%);
+//    --fill-ld-r20: hsl(0 0 100% / 0.2);
+//    --fill-ld-r40: hsl(0 0 100% / 0.4);
+//    --fill-ld-r70: hsl(0 0 100% / 0.7);
+//    --fill-ld-r90: hsl(0 0 100% / 0.9);
+//    --fill-white-w10: hsl(0 0 100% / 0.1);
+//    --fill-white-w100: hsl(0 0 100%);
+//    --fill-white-w20: hsl(0 0 100% / 0.2);
+//    --fill-white-w40: hsl(0 0 100% / 0.4);
+//    --fill-white-w60: hsl(0 0 100% / 0.6);
+//    --fill-white-w80: hsl(0 0 100% / 0.8);
+//    --fill-part-of-speech-adjective: hsl(180 26% 70%);
+//    --fill-part-of-speech-adverb: hsl(219 25% 64%);
+//    --fill-part-of-speech-conjunction: hsl(47 6% 71%);
+//    --fill-part-of-speech-noun: hsl(101 25% 69%);
+//    --fill-part-of-speech-preposition: hsl(257 16% 63%);
+//    --fill-part-of-speech-verb: hsl(0 55% 77%);
+//    --line-lo0: hsl(0 0 0% / 0.04);
+//    --line-lo1: hsl(0 0 0% / 0.07);
+//    --line-lo2: hsl(0 0 0% / 0.15);
+//    --bg-bg1: hsl(0 0 96%);
+//    --bg-bg2: hsl(0 0 100%);
+//    --bg-bg-blur: hsl(0 0 100% / 0.85);
+//    --bg-bg-blur-2: hsl(0 0 100% / 0.65);
+//}
+//[data-theme="Dark"] {
+//    /* colors */
+//    --fill-br-ohover: hsl(8 92% 64% / 0.22);
+//    --fill-brand100: hsl(144 58% 41% / 0.14);
+//    --fill-brand200: hsl(144 58% 41% / 0.2);
+//    --fill-brand300: hsl(144 58% 41% / 0.3);
+//    --fill-brand400: hsl(144 58% 41% / 0.4);
+//    --fill-brand50: hsl(144 58% 41% / 0.05);
+//    --fill-brand500: hsl(144 58% 41% / 0.5);
+//    --fill-brand600: hsl(144 58% 41% / 0.6);
+//    --fill-brand700: hsl(144 58% 41% / 0.7);
+//    --fill-brand800: hsl(144 58% 41% / 0.8);
+//    --fill-brand900: hsl(144 58% 41% / 0.9);
+//    --fill-brand950: hsl(144 57% 41%);
+//    --fill-orange: hsl(36 100% 52%);
+//    --fill-red: hsl(3 100% 61%);
+//    --fill-gray-g1: hsl(0 0 90%);
+//    --fill-gray-g2: hsl(0 0 70%);
+//    --fill-gray-g3: hsl(0 0 50%);
+//    --fill-gray-g4: hsl(0 0 25%);
+//    --fill-gray-g5: hsl(0 0 18%);
+//    --fill-gray-g6: hsl(0 0 8%);
+//    --fill-gray-go1: hsl(0 0 100%);
+//    --fill-gray-go2: hsl(0 0 100% / 0.8);
+//    --fill-gray-go3: hsl(0 0 100% / 0.55);
+//    --fill-gray-go4: hsl(0 0 100% / 0.3);
+//    --fill-gray-go5: hsl(0 0 100% / 0.1);
+//    --fill-gray-go6: hsl(0 0 100% / 0.05);
+//    --fill-ld-r100: hsl(0 0 0%);
+//    --fill-ld-r20: hsl(0 0 0% / 0.2);
+//    --fill-ld-r40: hsl(0 0 0% / 0.4);
+//    --fill-ld-r70: hsl(0 0 0% / 0.7);
+//    --fill-ld-r90: hsl(0 0 0% / 0.9);
+//    --fill-white-w10: hsl(0 0 100% / 0.1);
+//    --fill-white-w100: hsl(0 0 100%);
+//    --fill-white-w20: hsl(0 0 100% / 0.2);
+//    --fill-white-w40: hsl(0 0 100% / 0.4);
+//    --fill-white-w60: hsl(0 0 100% / 0.6);
+//    --fill-white-w80: hsl(0 0 100% / 0.8);
+//    --fill-part-of-speech-adjective: hsl(180 26% 70% / 0.6);
+//    --fill-part-of-speech-adverb: hsl(219 25% 64% / 0.6);
+//    --fill-part-of-speech-conjunction: hsl(47 6% 71% / 0.6);
+//    --fill-part-of-speech-noun: hsl(101 25% 69% / 0.4);
+//    --fill-part-of-speech-preposition: hsl(257 16% 63% / 0.6);
+//    --fill-part-of-speech-verb: hsl(0 55% 77% / 0.6);
+//    --line-lo0: hsl(0 0 100% / 0.08);
+//    --line-lo1: hsl(0 0 100% / 0.15);
+//    --line-lo2: hsl(0 0 100% / 0.22);
+//    --bg-bg1: hsl(0 0 0%);
+//    --bg-bg2: hsl(0 0 8%);
+//    --bg-bg-blur: hsl(0 0 8% / 0.85);
+//    --bg-bg-blur-2: hsl(0 0 8% / 0.65);
+//}
