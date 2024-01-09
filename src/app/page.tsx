@@ -10,8 +10,6 @@ import DailyTitle from "@/app/DailyTitle";
 import SentencesResult from "@/app/SentencesResult";
 import ArticleResult from "@/app/ArticleResult";
 
-export const revalidate = 3600
-
 export default async function Home() {
     const wordData = await getDaily()
     const words = wordData.map(item => item.word)
@@ -24,18 +22,14 @@ export default async function Home() {
                         <TodayWordsResult words={words}/>
                     </Suspense>
                 </TodayWords>
-                <div className={"flex-col pt-10 px-2 w-[54rem] gap-4.8 h-full overflow-auto"}>
+                <div className={"flex-col pt-10 pb-20 px-2 w-[54rem] gap-4.8 h-full overflow-auto"}>
                     <Sentences>
                         <DailyTitle title={"Sentences"}/>
-                        <Suspense fallback={<Loading/>}>
-                            <SentencesResult words={words}/>
-                        </Suspense>
+                        <SentencesResult words={words}/>
                     </Sentences>
                     <Article>
                         <DailyTitle title={"Article"}/>
-                        <Suspense fallback={<Loading/>}>
-                            <ArticleResult words={words}/>
-                        </Suspense>
+                        <ArticleResult words={words}/>
                     </Article>
                 </div>
             </Daily>

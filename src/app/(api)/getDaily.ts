@@ -26,8 +26,8 @@ export const getDaily = cache(async () => {
         },
         where: {
             word_id: {
-                gte: 121, // word_idが101以上
-                lte: 130, // そしてword_idが110以下
+                gte: 141, // word_idが101以上
+                lte: 150, // そしてword_idが110以下
             },
         },
         include: {

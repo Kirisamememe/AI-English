@@ -115,7 +115,7 @@ const config: Config = {
             'none': '0',
             'sm': '0.3rem',
             DEFAULT: '0.6rem',
-            'lg': '1rem',
+            'lg': '1.6rem',
             'full': '9999px',
         },
         borderWidth: {

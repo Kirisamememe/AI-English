@@ -1,5 +1,4 @@
 import { PrismaClient } from '@prisma/client';
-
 const prismaClientSingleton = () => new PrismaClient({ datasources: {  db: { url: process.env.DATABASE_URL } } });
 
 // グローバルスコープにprismaを宣言しますが、これはTypeScriptの型定義です
