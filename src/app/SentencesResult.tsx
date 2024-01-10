@@ -2,7 +2,7 @@
 
 import toParagraphs from "@/components/toParagraphs";
 import SpeechButton from "@/components/SpeechButton";
-import getOrGenerateSentences from "@/app/(api)/getOrGenerateSentences";
+import getOrGenerateSentences from "@/app/actions/getOrGenerateSentences";
 import {useEffect, useState} from "react";
 import RegenerateButton from "@/components/RegenerateButton";
 import Loading from "@/app/loading";

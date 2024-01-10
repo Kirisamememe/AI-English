@@ -1,7 +1,7 @@
 import React from "react";
-import generateSentences from "@/app/(api)/generateSentences";
+import generateSentences from "@/app/actions/generateSentences";
 import {RegenerateIcon} from "@/components/Icon";
-import generateArticle from "@/app/(api)/generateArticle";
+import generateArticle from "@/app/actions/generateArticle";
 
 
 interface RegenerateButton {

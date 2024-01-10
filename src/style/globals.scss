@@ -99,9 +99,9 @@ You can apply the theme on any DOM node, not just the `body`
     --fill-brand2: rgba(255, 255, 255, 0.8);
     --fill-brhover: rgba(44, 164, 92, 0.9);
     --fill-brohover: rgba(247, 102, 79, 0.22);
-    --fill-gray-g1: rgba(229, 229, 229, 1);
-    --fill-gray-g2: rgba(178, 178, 178, 1);
-    --fill-gray-g3: rgba(128, 128, 128, 1);
+    --fill-gray-g1: rgba(242, 242, 242, 1);
+    --fill-gray-g2: rgba(204, 204, 204, 1);
+    --fill-gray-g3: rgba(141, 141, 141, 1);
     --fill-gray-g4: rgba(64, 64, 64, 1);
     --fill-gray-g5: rgba(46, 46, 46, 1);
     --fill-gray-g6: rgba(20, 20, 20, 1);
@@ -318,3 +318,14 @@ input[type="checkbox"] {
 //    --bg-bg-blur: hsl(0 0 8% / 0.85);
 //    --bg-bg-blur-2: hsl(0 0 8% / 0.65);
 //}
+
+details {
+    &summary{
+
+        &::-webkit-details-marker {
+            //display: none;
+        }
+    }
+
+}
+

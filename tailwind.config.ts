@@ -60,7 +60,13 @@ const config: Config = {
                 "800": "var(--bg-bg2)"
             },
             'BGBlur1': "var(--bg-bg-blur)",
-            'BGBlur2': "var(--bg-bg-blur-2)"
+            'BGBlur2': "var(--bg-bg-blur-2)",
+            'noun': "var(--fill-part-of-speech-noun)",
+            'verb': "var(--fill-part-of-speech-verb)",
+            'adjective': "var(--fill-part-of-speech-adjective)",
+            'adverb': "var(--fill-part-of-speech-adverb)",
+            'conjunction': "var(--fill-part-of-speech-conjunction)",
+            'preposition': "var(--fill-part-of-speech-preposition)",
         },
         opacity: {
             '0': '0',

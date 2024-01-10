@@ -1,13 +1,13 @@
 'use server'
 
-import prisma from "@/app/(api)/db";
+import prisma from "@/app/actions/db";
 import { cache } from 'react'
 
-const getArticleRecord = cache(async () => {
+const getSentencesRecord = cache(async () => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    return prisma.articleHistory.findFirst({
+    return prisma.sentencesHistory.findFirst({
         where: {
             generated_at: {
                 gte: today
@@ -19,4 +19,4 @@ const getArticleRecord = cache(async () => {
     });
 })
 
-export default getArticleRecord
+export default getSentencesRecord

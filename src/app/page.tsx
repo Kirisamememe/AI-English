@@ -2,7 +2,7 @@ import Daily from "@/app/Daily";
 import TodayWords from "@/app/TodayWords";
 import Sentences from "@/app/Sentences";
 import Article from "@/app/Article";
-import {getDaily} from "@/app/(api)/getDaily";
+import {getDaily} from "@/app/actions/getDaily";
 import {Suspense} from "react";
 import Loading from "@/app/loading";
 import TodayWordsResult from "@/app/TodayWordsResult";

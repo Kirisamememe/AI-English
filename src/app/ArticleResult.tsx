@@ -1,7 +1,7 @@
 'use client'
 
 import toParagraphs from "@/components/toParagraphs";
-import getOrGenerateArticle from "@/app/(api)/getOrGenerateArticle";
+import getOrGenerateArticle from "@/app/actions/getOrGenerateArticle";
 import {useEffect, useState} from "react";
 import Loading from "@/app/loading";
 import RegenerateButton from "@/components/RegenerateButton";

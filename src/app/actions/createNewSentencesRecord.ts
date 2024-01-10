@@ -1,6 +1,6 @@
 'use server'
 
-import prisma from "@/app/(api)/db";
+import prisma from "@/app/actions/db";
 
 const createNewSentencesRecord = async (sentences: string) => {
     await prisma.sentencesHistory.create({

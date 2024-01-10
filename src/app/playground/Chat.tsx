@@ -1,14 +1,14 @@
 'use client'
 
 import {ChangeEvent, useState, MouseEvent} from 'react';
-import handleMessage from "@/app/(api)/chat";
+import handleMessage from "@/app/actions/chat";
 
 interface ChatMessage {
     role: string;
     parts: string;
 }
 
-const App = () => {
+const Chat = () => {
     const [message, setMessage] = useState('');
     const [history, setHistory] = useState<ChatMessage[]>([]);
     const [response, setResponse] = useState('');
@@ -18,6 +18,7 @@ const App = () => {
         const reply = await handleMessage({message, history});
         setResponse(reply);
         console.log(reply);
+
         setHistory([...history, { role: 'user', parts: message }, { role: 'model', parts: reply }]);
     };
 
@@ -46,4 +47,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default Chat;

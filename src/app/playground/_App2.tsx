@@ -5,7 +5,7 @@
 //     parts: string;
 // }
 //
-// const App = () => {
+// const Chat = () => {
 //     const [message, setMessage] = useState('');
 //     const [history, setHistory] = useState<ChatMessage[]>([]);
 //     const [response, setResponse] = useState('');
@@ -41,4 +41,4 @@
 //     );
 // };
 //
-// export default App;
+// export default Chat;

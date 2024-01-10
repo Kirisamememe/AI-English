@@ -1,7 +1,7 @@
 'use server'
 
-import getArticleRecord from "@/app/(api)/getArticleRecord";
-import generateArticle from "@/app/(api)/generateArticle";
+import getArticleRecord from "@/app/actions/getArticleRecord";
+import generateArticle from "@/app/actions/generateArticle";
 
 const getOrGenerateArticle = async (words: string[]) => {
     const articleRecord = await getArticleRecord()

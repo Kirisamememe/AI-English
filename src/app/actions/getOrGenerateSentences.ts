@@ -1,7 +1,7 @@
 'use server'
 
-import generateSentences from "@/app/(api)/generateSentences";
-import getSentencesRecord from "@/app/(api)/getSentencesRecord";
+import generateSentences from "@/app/actions/generateSentences";
+import getSentencesRecord from "@/app/actions/getSentencesRecord";
 
 const getOrGenerateSentences = async (words: string[]) => {
     const sentencesRecord = await getSentencesRecord()

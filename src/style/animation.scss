@@ -17,3 +17,42 @@
 .checkedAnimation {
     animation: checkedAnimation 0.3s ease-out forwards;
 }
+
+
+.expand-animation {
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    max-height: 0; /* 初期状態では閉じている */
+}
+
+.expand-animation-expanded {
+    transition: max-height 0.5s ease-in-out;
+    max-height: 500rem; /* 十分に大きな値に設定 */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 0.4s ease-out forwards;
+    //animation-delay: 0.4s;
+}
+
+.fadeOut {
+    animation: fadeOut 0.4s ease-out forwards;
+}

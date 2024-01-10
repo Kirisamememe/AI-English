@@ -1,7 +1,7 @@
-export default function Loading() {
+export default function Loading({className = "bg-Brand-50 w-full h-full"}: {className?: string}) {
 
     return (
-        <div className={"bg-Brand-50 w-full h-full justify-center items-center rounded-lg"}>
+        <div className={`${className} justify-center items-center rounded-lg`}>
             <svg className={"animate-spin h-5 w-5 mr-3"} width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="24" cy="24" r="15.5" stroke="#3EB76E" strokeOpacity="0.2" strokeWidth="5"/>
                 <path
