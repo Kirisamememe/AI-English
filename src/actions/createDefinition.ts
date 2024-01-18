@@ -9,7 +9,6 @@ const createDefinition = async (meaningId: number, definition: string = "Input a
             meaning_id: meaningId,
             definition: definition,
             example: example,
-            order: null,
             created_at: new Date(),
         }
     })
