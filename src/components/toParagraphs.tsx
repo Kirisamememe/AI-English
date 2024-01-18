@@ -9,15 +9,25 @@ const toParagraphs = (text: string) => {
 
     return (
         <>
-            {
-                text.split('\n').map((paragraph, paraNum) =>
-                <p key={crypto.randomUUID()} className="mb-1.6 text-Gr-900 text-[1.6rem]">{paragraph.split(" ").map((word, wordNum) => (
-                    <React.Fragment key={`${getLemma(word)}-${paraNum}-${wordNum}`}>
-                        <span className={""} id={`${getLemma(word)}-${paraNum}-${wordNum}`}>{word}</span>
-                        {" "}
-                    </React.Fragment>
-                ))}</p>)
-            }
+            {text.split('\n').map((paragraph, paraNum) =>
+                <p key={`${paragraph}_${paraNum}`} className="mb-1.6 text-Gr-900 text-[1.6rem]">
+
+                    {paragraph.split(/(\b|\s)/).map((token, wordNum) => {
+                        if (/^\w+$/.test(token)) { // 単語のみにマッチする
+                            const lemma = getLemma(token);
+                            return  <React.Fragment key={`${lemma}-${paraNum}-${wordNum}`}>
+                                        {" "}
+                                        <span className={"hover:bg-Brand-200 cursor-pointer"}
+                                              id={`${lemma}-${paraNum}-${wordNum}`}>{token}</span>
+                                    </React.Fragment>
+                        } else {
+                            // 記号や空白の処理
+                            return <React.Fragment key={`${token}-${paraNum}-${wordNum}`}>{token}</React.Fragment>;
+                        }
+                    })}
+
+                </p>
+            )}
         </>
     )
 }

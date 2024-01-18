@@ -38,3 +38,5 @@ next-env.d.ts
 .storybook
 .idea
 /prisma/.env
+
+certificates

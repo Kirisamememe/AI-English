@@ -81,10 +81,10 @@ You can apply the theme on any DOM node, not just the `body`
 */
 
 [data-mode="dark"] {
-    --bg-bg-blur: rgba(20, 20, 20, 0.85);
-    --bg-bg-blur-2: rgba(20, 20, 20, 0.65);
+    --bg-blur: rgba(8, 13, 10, 0.85);
+    --bg-blur-2: rgba(8, 13, 10, 0.65);
     --bg-bg1: rgba(0, 0, 0, 1);
-    --bg-bg2: rgba(20, 20, 20, 1);
+    --bg-bg2: rgb(8, 13, 10, 1);
     --fill-brand50: hsl(144 58% 41% / 0.05);
     --fill-brand100: hsl(144 58% 41% / 0.1);
     --fill-brand200: hsl(144 58% 41% / 0.2);
@@ -328,4 +328,17 @@ details {
     }
 
 }
+//
+//#example {
+//    &:focus {
+//        outline: none;
+//        -webkit-shape-outside: none;
+//    }
+//}
+
+.no-resize {
+    resize: none; /* 高さ調整ハンドルの非表示 */
+}
+
+
 

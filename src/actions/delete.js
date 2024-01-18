@@ -2,12 +2,13 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const main = async (num) => {
-    await prisma.articleHistory.delete({
+    await prisma.words.delete({
         where: {
-            article_id: num,
+            word_id: num,
         },
     });
 }
 
-main(1).catch(console.error)
-main(2).catch(console.error)
+main(512).catch(console.error)
+main(513).catch(console.error)
+main(514).catch(console.error)

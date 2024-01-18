@@ -1,7 +1,7 @@
 'use client'
 
 import {useEffect, useState} from "react";
-import ChangeThemeIcon from "@/components/ChangeThemeIcon";
+import ChangeThemeIcon from "@/components/nav/ChangeThemeIcon";
 
 type Theme = 'light' | 'dark';
 

@@ -1,6 +1,6 @@
 'use server'
 
-import prisma from "@/app/actions/db";
+import prisma from "@/actions/db";
 
 const createNewArticleRecord = async (article: string) => {
     await prisma.articleHistory.create({

@@ -1,7 +1,7 @@
 'use client'
 
 import {ChangeEvent, useState, MouseEvent} from 'react';
-import handleMessage from "@/app/actions/chat";
+import handleMessage from "@/actions/chatWithGeminiOnServer";
 
 interface ChatMessage {
     role: string;

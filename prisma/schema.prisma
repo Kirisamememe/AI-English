@@ -8,11 +8,13 @@ datasource db {
 }
 
 model Definitions {
-  definition_id Int      @id @default(autoincrement())
+  definition_id Int       @id @default(autoincrement())
   meaning_id    Int
-  definition    String   @db.Text
-  example       String?  @db.Text
-  meanings      Meanings @relation(fields: [meaning_id], references: [meaning_id], onDelete: Cascade)
+  definition    String    @db.Text
+  example       String?   @db.Text
+  created_at    DateTime? @default(now()) @db.Timestamp(0)
+  order         Int?
+  meanings      Meanings  @relation(fields: [meaning_id], references: [meaning_id], onDelete: Cascade)
 
   @@index([meaning_id], map: "Definitions_meaning_id_fkey")
 }
@@ -23,6 +25,8 @@ model Meanings {
   partOfSpeech String
   synonyms     String?
   antonyms     String?
+  created_at   DateTime?     @default(now()) @db.Timestamp(0)
+  order        Int?
   definitions  Definitions[]
   words        Words         @relation(fields: [word_id], references: [word_id], onDelete: Cascade)
 
@@ -37,14 +41,13 @@ model Words {
 }
 
 model ArticleHistory {
-  article_id Int  @id @default(autoincrement())
-  article String  @db.Text
-  generated_at DateTime
+  article_id   Int       @id @default(autoincrement())
+  article      String?   @db.Text
+  generated_at DateTime? @db.DateTime(0)
 }
 
 model SentencesHistory {
-  sentences_id Int  @id @default(autoincrement())
-  sentences String  @db.Text
-  generated_at DateTime
+  sentences_id Int       @id @default(autoincrement())
+  sentences    String?   @db.Text
+  generated_at DateTime? @db.DateTime(0)
 }
-

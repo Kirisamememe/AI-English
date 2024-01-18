@@ -104,5 +104,5 @@ input, select {
 }
 
 div {
-    display: flex;
+    @apply flex transition-all duration-200
 }

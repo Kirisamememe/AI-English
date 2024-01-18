@@ -2,7 +2,7 @@ import Daily from "@/app/Daily";
 import TodayWords from "@/app/TodayWords";
 import Sentences from "@/app/Sentences";
 import Article from "@/app/Article";
-import {getDaily} from "@/app/actions/getDaily";
+import {getDaily} from "@/actions/getDaily";
 import {Suspense} from "react";
 import Loading from "@/app/loading";
 import TodayWordsResult from "@/app/TodayWordsResult";
@@ -22,7 +22,7 @@ export default async function Home() {
                         <TodayWordsResult words={words}/>
                     </Suspense>
                 </TodayWords>
-                <div className={"flex-col pt-10 pb-20 px-2 w-[54rem] gap-4.8 h-full overflow-auto"}>
+                <div className={"2xl:flex-col 2xl:max-w-[58rem] pt-10 pb-20 px-2 gap-4.8 w-full h-full overflow-auto"}>
                     <Sentences>
                         <DailyTitle title={"Sentences"}/>
                         <SentencesResult words={words}/>

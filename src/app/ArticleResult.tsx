@@ -1,7 +1,7 @@
 'use client'
 
 import toParagraphs from "@/components/toParagraphs";
-import getOrGenerateArticle from "@/app/actions/getOrGenerateArticle";
+import getOrGenerateArticle from "@/actions/getOrGenerateArticle";
 import {useEffect, useState} from "react";
 import Loading from "@/app/loading";
 import RegenerateButton from "@/components/RegenerateButton";
@@ -13,11 +13,13 @@ const ArticleResult = ({words}: {words: string[]}) => {
 
     useEffect(() => {
         const firstLoad = async () => {
-            setArticle(await getOrGenerateArticle(words))
+            const response = await getOrGenerateArticle(words)
+
+            response && setArticle(response)
             setIsLoading(false)
         }
 
-        firstLoad().catch()
+        firstLoad().catch(error => console.log(error))
     },[words])
 
     return (

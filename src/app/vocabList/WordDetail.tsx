@@ -1,34 +1,116 @@
-import React from "react";
+import React, {useState} from "react";
+import {WordType} from "@/app/vocabList/WordList";
+import AddDefinition from "@/app/vocabList/AddDefinition";
+import Definition from "@/app/vocabList/Definition";
+import Meaning from "@/app/vocabList/Meaning";
+import AddMeaning from "@/app/vocabList/AddMeaning";
+import Loading from "@/app/loading";
 
-interface definitionAndExample {
-    definition: string
-    example: string | null
+interface WordDetail {
+    singleWord: WordType
+    setWords: React.Dispatch<React.SetStateAction<WordType[]>>
+    isFetching: boolean
+    detailRef: React.Ref<HTMLDetailsElement>
 }
 
-const WordDetail = ({definitionAndExample, detailRef}: {definitionAndExample: definitionAndExample[], detailRef: React.Ref<HTMLDetailsElement>}) => {
-    return (
-        <div className={"w-full px-2.4"}>
-            <details ref={detailRef} id={"row2"} className={`flex flex-col w-full max-h-[48rem] overflow-auto`}>
-                <summary className={"text-transparent h-0"}></summary>
+export interface NewDefinition {
+    definition_id: number
+    definition: string
+    example: string | null
+    order: number | null
+}
+
+const WordDetail = ({singleWord, setWords, isFetching, detailRef}: WordDetail) => {
+    const [newDefinition, setNewDefinition] = useState<string>("")
+
+    const changeDefinitionOrExample = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+        const wordId = Number(e.currentTarget.id.split("_")[0])
+        const meaningId = Number(e.currentTarget.id.split("_")[1])
+        const definitionId = Number(e.currentTarget.id.split("_")[2])
+
+        setWords(prevWords => prevWords.map (prevWordDetail => (
+            prevWordDetail.word_id === wordId ?
+            {
+            ...prevWordDetail,
+            meanings: prevWordDetail.meanings?.map(meaning =>
+                meaning.meaning_id === meaningId ? {
+                ...meaning,
+                definitions: meaning.definitions.map(definition =>
+                    definition.definition_id === definitionId
+                        ? { ...definition, [e.target.name]: e.target.value }
+                        : definition)
+            } : meaning )
+        } : prevWordDetail)))
+    }
+
+    const addDefinition = (wordId: number, meaningId: number, newDefinition: NewDefinition) => {
+        setWords(prevWords => prevWords.map( prevWordDetail => (
+            prevWordDetail.word_id === wordId ?
+            {
+            ...prevWordDetail,
+            meanings: prevWordDetail.meanings?.map(meaning =>
+                meaning.meaning_id === meaningId ? {
+                    ...meaning,
+                    definitions: [...meaning.definitions, newDefinition]
+            } : meaning)
+        } : prevWordDetail)))
+        setNewDefinition("")
+    }
+
+    const removeDefinition = (wordId: number, meaningId: number, definitionId: number) => {
+        setWords(prevWords => prevWords.map(prevWordDetail => (
+            prevWordDetail.word_id === wordId ?
+            {
+            ...prevWordDetail,
+            meanings: prevWordDetail.meanings?.map(meaning => (
+                meaning.meaning_id === meaningId ?
                 {
-                    <ol className={"list-decimal flex flex-col mt-0.8 mb-2.4 mx-1.2 gap-1.2"}>
-                        {definitionAndExample.map((item, index) => (
-                            <li key={crypto.randomUUID()}
-                                className={`flex gap-0.4 w-[62rem] text-[1.6rem] text-Gr-700 leading-[2rem] font-din font-semibold`}>
-                                {index + 1}.
-                                <div className={"flex-col gap-0.6"}>
-                                    {`${item.definition}`}
-                                    <p key={crypto.randomUUID()}
-                                       className={"text-Gr-500 text-[1.4rem] font-din font-normal leading-8"}>
-                                        {`  ${item.example}`}
-                                    </p>
-                                </div>
-                            </li>
-                        ))}
-                    </ol>
-                }
-            </details>
-        </div>
+                ...meaning,
+                definitions: meaning.definitions.filter(definition => definition.definition_id !== definitionId)
+            } : meaning))
+        } : prevWordDetail)))
+    }
+
+    return (
+        <details ref={detailRef} id={"row2"} className={
+            `flex flex-col w-full px-2.4 overflow-auto`
+        }>
+            <summary className={"text-transparent h-0"}></summary>
+            { isFetching ?
+                <Loading className={"mt-2 mb-3.2"}/> :
+                <div className={
+                    "flex-col mt-0.8 mb-2.4 mx-1.2 gap-3.2"
+                }>
+                    {singleWord.meanings?.map((meaning, index) => (
+                        <Meaning key={`${meaning.meaning_id}_${crypto.randomUUID()}`}
+                                 partOfSpeech={meaning.partOfSpeech}>
+                            {meaning.definitions.map((definition, index) => (
+                                <Definition
+                                    key={`${definition.definition_id}_${crypto.randomUUID()}`}
+                                    index={index}
+                                    wordId={singleWord.word_id}
+                                    meaningId={meaning.meaning_id}
+                                    definitionId={definition.definition_id}
+                                    definition={definition.definition}
+                                    example={definition.example || ""}
+                                    onChange={changeDefinitionOrExample}
+                                    remove={removeDefinition}
+                                />
+                            ))}
+                            <AddDefinition
+                                index={meaning.definitions.length}
+                                wordId={singleWord.word_id}
+                                meaningId={meaning.meaning_id}
+                                newDefinition={newDefinition}
+                                setNewDefinition={setNewDefinition}
+                                addDefinition={addDefinition}
+                            />
+                        </Meaning>
+                    ))}
+                    <AddMeaning/>
+                </div>
+            }
+        </details>
     )
 }
 

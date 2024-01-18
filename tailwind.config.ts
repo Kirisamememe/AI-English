@@ -59,8 +59,8 @@ const config: Config = {
                 "900": "var(--bg-bg1)",
                 "800": "var(--bg-bg2)"
             },
-            'BGBlur1': "var(--bg-bg-blur)",
-            'BGBlur2': "var(--bg-bg-blur-2)",
+            'BGBlur1': "var(--bg-blur)",
+            'BGBlur2': "var(--bg-blur-2)",
             'noun': "var(--fill-part-of-speech-noun)",
             'verb': "var(--fill-part-of-speech-verb)",
             'adjective': "var(--fill-part-of-speech-adjective)",
@@ -131,20 +131,23 @@ const config: Config = {
             '0.3': '0.3rem'
         },
         screens: {
-            sm: '480px',
-            md: '768px',
-            lg: '976px',
-            xl: '1280px',
-            '2xl': '1536px',
+            sm: {'max': '480px'},
+            md: {'max': '768px'},
+            lg: {'max': '976px'},
+            xl: {'max': '1280px'},
+            '2xl': {'max': '1440px'},
         },
         extend: {
             fontFamily: {
-                sans: ["\"M PLUS 1p\"", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "MS PGothic", 'sans-serif'],
+                sans: ["DIN-2014", "\"M PLUS 1p\"", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "MS PGothic", 'sans-serif'],
                 serif: ['serif'],
                 'din': ["DIN-2014"]
             },
+            boxShadow: {
+                'b': '0px 1px 0px 0px var(--fill-Bo-50)'
+            }
         },
     },
-    plugins: [],
+    plugins: [require('@tailwindcss/forms')],
 }
 export default config

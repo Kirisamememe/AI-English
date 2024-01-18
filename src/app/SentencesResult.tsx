@@ -2,7 +2,7 @@
 
 import toParagraphs from "@/components/toParagraphs";
 import SpeechButton from "@/components/SpeechButton";
-import getOrGenerateSentences from "@/app/actions/getOrGenerateSentences";
+import getOrGenerateSentences from "@/actions/getOrGenerateSentences";
 import {useEffect, useState} from "react";
 import RegenerateButton from "@/components/RegenerateButton";
 import Loading from "@/app/loading";
@@ -13,7 +13,9 @@ const SentencesResult = ({words}: {words: string[]}) => {
 
     useEffect(() => {
         const firstLoad = async () => {
-            setSentences(await getOrGenerateSentences(words))
+            const response = await getOrGenerateSentences(words)
+
+            response && setSentences(response)
             setIsLoading(false)
         }
 

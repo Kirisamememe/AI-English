@@ -1,7 +1,7 @@
 'use server'
 
-import textOnlyViaGemini from "@/app/actions/textOnlyViaGemini";
-import createNewArticleRecord from "@/app/actions/createNewArticleRecord";
+import textOnlyViaGemini from "@/actions/textOnlyViaGemini";
+import createNewArticleRecord from "@/actions/createNewArticleRecord";
 
 const generateArticle = async (words: string[]) => {
     const prompt = `

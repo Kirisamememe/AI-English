@@ -1,20 +1,21 @@
 'use client'
 
 import {CheckedIcon, UncheckedIcon} from "@/components/CheckBoxIcon";
+import {useEffect} from "react";
 
 const TodayWordsResult = ({words}: { words: string[] }) => {
 
     const applySpecialStyle = (word: string) => {
         document.querySelectorAll(`span[id^="${word}"]`).forEach(element => {
             const htmlElement = element as HTMLElement;
-            htmlElement.classList.add("border-b-0.2", "border-solid", "border-Brand-800", "bg-Brand-200", "font-semibold")
+            htmlElement.classList.add("border-b-0.2", "border-solid", "border-Brand-800", "bg-Brand-50", "font-semibold")
         });
     }
 
     const removeSpecialStyle = (word: string) => {
         document.querySelectorAll(`span[id^="${word}"]`).forEach(element => {
             const htmlElement = element as HTMLElement; // 型アサーション
-            htmlElement.classList.remove("border-b-0.2", "border-solid", "border-Brand-800", "bg-Brand-200", "font-semibold")
+            htmlElement.classList.remove("border-b-0.2", "border-solid", "border-Brand-800", "bg-Brand-50", "font-semibold")
         });
     };
 
@@ -25,6 +26,16 @@ const TodayWordsResult = ({words}: { words: string[] }) => {
             removeSpecialStyle(word);
         }
     };
+
+    useEffect(() => {
+        const highlight = () => {
+            words.map(word => {
+                applySpecialStyle(word)
+            })
+        }
+
+        highlight()
+    })
 
     return (
         <div className={"flex gap-0.6 flex-col overflow-auto"}>
