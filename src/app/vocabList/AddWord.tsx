@@ -16,6 +16,7 @@ const AddWord = ({addNewWord}: {addNewWord: (word: WordType) => void}) => {
                 .then(newWord => {
                     addNewWord(newWord)
                     console.log("単語を追加しました")
+                    console.log(newWord)
                     setNewWord("")
                 })
                 .catch(error => console.log(error))

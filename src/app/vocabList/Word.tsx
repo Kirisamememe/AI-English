@@ -15,7 +15,7 @@ interface Word {
 
 const Word = ({wordInfo, setWords}: Word) => {
     const [isSpread, setSpread] = useState(false)
-    const [isUndefined, setIsUndefined] = useState<boolean>(wordInfo.meanings && wordInfo.meanings?.length <= 0 || false) //!!二重否定で存在を確認
+    const [isUndefined, setIsUndefined] = useState<boolean>(wordInfo.meanings ? wordInfo.meanings.length <= 0 : true)
     const [isFetching, setIsFetching] = useState<boolean>(false)
     const detailRef = useRef<HTMLDetailsElement>(null);
     const isInitialMount = useRef(true);
