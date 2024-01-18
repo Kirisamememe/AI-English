@@ -1,37 +1,36 @@
 
 import {NewDefinition} from "@/app/vocabList/WordDetail";
 import DefinitionContents from "@/app/vocabList/DefinitionContents";
-import React, {useEffect, useRef} from "react";
+import React, {useState} from "react";
+import {WordType} from "@/app/vocabList/WordList";
 
 interface AddDefinition {
     index: number
     wordId: number
     meaningId: number
-    newDefinition: string
-    setNewDefinition: React.Dispatch<React.SetStateAction<string>>
-    addDefinition: (wordId:number, meaningId: number, newDefinition: NewDefinition) => void
+    setWords: React.Dispatch<React.SetStateAction<WordType[]>>
 }
 
-const AddDefinition = ({index, wordId, meaningId, newDefinition, setNewDefinition, addDefinition}: AddDefinition) => {
-    const textareaRef = useRef<HTMLTextAreaElement>(null);
+const AddDefinition = ({index, wordId, meaningId, setWords}: AddDefinition) => {
+    const [newDefinition, setNewDefinition] = useState<string>("")
 
     const changeNewDefinition = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setNewDefinition(e.currentTarget.value)
     }
 
-    // const handleOnKeyDownForAdd = (e: KeyboardEvent) => {
-    //     if (e.key === 'Enter') textareaRef.current?.focus()
-    //     console.log("キーが押された")
-    // }
-    //
-    // useEffect(() => {
-    //     window.addEventListener('keypress', handleOnKeyDownForAdd)
-    //
-    //     return () => {
-    //         window.removeEventListener('keypress', handleOnKeyDownForAdd)
-    //     }
-    // }, [])
-
+    const addDefinition = (wordId: number, meaningId: number, newDefinition: NewDefinition) => {
+        setWords(prevWords => prevWords.map( prevWordDetail => (
+            prevWordDetail.word_id === wordId ?
+                {
+                    ...prevWordDetail,
+                    meanings: prevWordDetail.meanings?.map(meaning =>
+                        meaning.meaning_id === meaningId ? {
+                            ...meaning,
+                            definitions: [...meaning.definitions, newDefinition]
+                        } : meaning)
+                } : prevWordDetail)))
+        setNewDefinition("")
+    }
 
     return (
         <li className={"flex gap-0.2"}>
@@ -45,7 +44,6 @@ const AddDefinition = ({index, wordId, meaningId, newDefinition, setNewDefinitio
                     dataType={1}
                     addDefinition={addDefinition}
                     onChange={changeNewDefinition}
-                    // onKeyDownRef={textareaRef}
                 />
             </div>
         </li>

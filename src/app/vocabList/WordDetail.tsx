@@ -21,7 +21,6 @@ export interface NewDefinition {
 }
 
 const WordDetail = ({singleWord, setWords, isFetching, detailRef}: WordDetail) => {
-    const [newDefinition, setNewDefinition] = useState<string>("")
 
     const changeDefinitionOrExample = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         const wordId = Number(e.currentTarget.id.split("_")[0])
@@ -43,19 +42,19 @@ const WordDetail = ({singleWord, setWords, isFetching, detailRef}: WordDetail) =
         } : prevWordDetail)))
     }
 
-    const addDefinition = (wordId: number, meaningId: number, newDefinition: NewDefinition) => {
-        setWords(prevWords => prevWords.map( prevWordDetail => (
-            prevWordDetail.word_id === wordId ?
-            {
-            ...prevWordDetail,
-            meanings: prevWordDetail.meanings?.map(meaning =>
-                meaning.meaning_id === meaningId ? {
-                    ...meaning,
-                    definitions: [...meaning.definitions, newDefinition]
-            } : meaning)
-        } : prevWordDetail)))
-        setNewDefinition("")
-    }
+    // const addDefinition = (wordId: number, meaningId: number, newDefinition: NewDefinition) => {
+    //     setWords(prevWords => prevWords.map( prevWordDetail => (
+    //         prevWordDetail.word_id === wordId ?
+    //         {
+    //         ...prevWordDetail,
+    //         meanings: prevWordDetail.meanings?.map(meaning =>
+    //             meaning.meaning_id === meaningId ? {
+    //                 ...meaning,
+    //                 definitions: [...meaning.definitions, newDefinition]
+    //         } : meaning)
+    //     } : prevWordDetail)))
+    //     setNewDefinition("")
+    // }
 
     const removeDefinition = (wordId: number, meaningId: number, definitionId: number) => {
         setWords(prevWords => prevWords.map(prevWordDetail => (
@@ -82,11 +81,11 @@ const WordDetail = ({singleWord, setWords, isFetching, detailRef}: WordDetail) =
                     "flex-col mt-0.8 mb-2.4 mx-1.2 gap-3.2"
                 }>
                     {singleWord.meanings?.map((meaning, index) => (
-                        <Meaning key={`${meaning.meaning_id}_${crypto.randomUUID()}`}
+                        <Meaning key={`${meaning.meaning_id}_${singleWord.word}_${singleWord.word_id}`}
                                  partOfSpeech={meaning.partOfSpeech}>
                             {meaning.definitions.map((definition, index) => (
                                 <Definition
-                                    key={`${definition.definition_id}_${crypto.randomUUID()}`}
+                                    key={`${definition.definition_id}_${singleWord.word}_${singleWord.word_id}`}
                                     index={index}
                                     wordId={singleWord.word_id}
                                     meaningId={meaning.meaning_id}
@@ -101,9 +100,7 @@ const WordDetail = ({singleWord, setWords, isFetching, detailRef}: WordDetail) =
                                 index={meaning.definitions.length}
                                 wordId={singleWord.word_id}
                                 meaningId={meaning.meaning_id}
-                                newDefinition={newDefinition}
-                                setNewDefinition={setNewDefinition}
-                                addDefinition={addDefinition}
+                                setWords={setWords}
                             />
                         </Meaning>
                     ))}
