@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import Logo from "@/components/nav/Logo";
 import ChangeTheme from "@/components/nav/ChangeTheme";
 import SearchBar from "@/components/nav/SearchBar";
+import GithubLink from "@/components/nav/GithubLink";
 
 const Nav = ({initialTheme}: {initialTheme: 'light' | 'dark'}) => {
 
@@ -25,11 +26,15 @@ const Nav = ({initialTheme}: {initialTheme: 'light' | 'dark'}) => {
                     <NavItem label={"Home"} isSelected={isActive('/')} link={"/"}/>
                     <NavItem label={"Vocab List"} isSelected={isActive('/vocabList')} link={"/vocabList"}/>
                     <NavItem label={"PlayGround"} isSelected={isActive('/playground')} link={"/playground"}/>
+
                 </div>
             </div>
             <div className={"gap-2.4 items-center"}>
                 <SearchBar/>
-                <ChangeTheme initialValue={initialTheme}/>
+                <div className={"gap-1.2"}>
+                    <GithubLink/>
+                    <ChangeTheme initialValue={initialTheme}/>
+                </div>
                 <Avatar imgUrl={"https://s2.loli.net/2023/09/24/5CaOJ9W3b6LIfRT.jpg"}/>
             </div>
         </nav>
